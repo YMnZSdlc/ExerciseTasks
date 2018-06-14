@@ -1,9 +1,31 @@
 package com.codefights.java.arcade;
 
+import java.util.Arrays;
+
 public class Intro {
     public static void main(String[] args) {
 
+        Intro intro = new Intro();
+        int[] arr = {6, 2, 3, 8};
+        System.out.println(intro.makeArrayConsecutive2(arr));
+
     }
+
+    // 6.
+    int makeArrayConsecutive2(int[] statues) {
+        int result =0;
+        Arrays.sort(statues);
+        for (int i = 0; i <statues.length-1 ; i++) {
+            if (statues[i+1]-statues[i]>1){
+                result=statues[i+1]-statues[i];
+                --result;
+            }
+        }
+        return result;
+    }
+
+//    int makeArrayConsecutiveRecu (int [] arr, int index){
+//    }
 
     // 5.
     int shapeArea(int n) {
@@ -39,5 +61,5 @@ public class Intro {
     int add(int param1, int param2) {
         return param1 + param2;
     }
-    
+
 }
