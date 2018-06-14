@@ -6,8 +6,9 @@ public class Intro {
     public static void main(String[] args) {
 
         Intro intro = new Intro();
-        int[] arr = {6, 2, 3, 8};
+        int[] arr = {6, 2, 3, 8, 11};
         System.out.println(intro.makeArrayConsecutive2(arr));
+
 
     }
 
@@ -24,8 +25,6 @@ public class Intro {
         return result;
     }
 
-//    int makeArrayConsecutiveRecu (int [] arr, int index){
-//    }
 
     // 5.
     int shapeArea(int n) {
@@ -45,11 +44,17 @@ public class Intro {
 
     // 3.
     boolean checkPalindrome(String inputString) {
-        int end = inputString.length();
-        if (end == 1) return true;
-        if (end == 2 && inputString.charAt(0) == inputString.charAt(1)) return true;
-        if (inputString.charAt(0) != inputString.charAt(end - 1)) return false;
-        return checkPalindrome(inputString.substring(1, end - 1));
+        String clean = inputString.replaceAll("\\s+", "").toLowerCase();
+        int length = clean.length();
+        int forward = 0;
+        int backward = length - 1;
+        while (backward > forward) {
+            char forwardChar = clean.charAt(forward++);
+            char backwardChar = clean.charAt(backward--);
+            if (forwardChar != backwardChar)
+                return false;
+        }
+        return true;
     }
 
     // 2. Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc.
