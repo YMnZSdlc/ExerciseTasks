@@ -6,21 +6,49 @@ public class Intro {
     public static void main(String[] args) {
 
         Intro intro = new Intro();
-        int[] arr = {6, 2, 3, 8, 11};
-        System.out.println(intro.makeArrayConsecutive2(arr));
+        int[] arr = {1, 2, 5, 3, 5};
+        System.out.println(intro.almostIncreasingSequence(arr));
 
 
     }
 
+    // 7.
+    boolean almostIncreasingSequence(int[] sequence) {
+        int howManyToDel = 0;
+        int end = sequence.length;
+
+        if (end == 2) return true;
+
+        int first = 0;
+        int second = 1;
+        while (second < end) {
+            if (sequence[first] >= sequence[second]) {
+                howManyToDel++;
+                if (howManyToDel > 1) return false;
+            }
+            second++;
+            if (second < end && sequence[first] >= sequence[second]) {
+                return false;
+            }
+            first++;
+        }
+        return true;
+    }
+
     // 6.
     int makeArrayConsecutive2(int[] statues) {
-        int result =0;
+        int result = 0;
+        int end = statues.length;
+        if (end < 2) return result;
         Arrays.sort(statues);
-        for (int i = 0; i <statues.length-1 ; i++) {
-            if (statues[i+1]-statues[i]>1){
-                result=statues[i+1]-statues[i];
-                --result;
+        int first = 0;
+        int second = 1;
+        while (second < end) {
+            if (statues[second] - statues[first] > 1) {
+                result = result + (statues[second] - statues[first] - 1);
             }
+            first++;
+            second++;
         }
         return result;
     }
@@ -28,7 +56,7 @@ public class Intro {
 
     // 5.
     int shapeArea(int n) {
-        return n*n+(n-1)*(n-1);
+        return n * n + (n - 1) * (n - 1);
     }
 
     // 4.
