@@ -27,11 +27,29 @@ public class Warmup2 {
         return wynik;
     }
 
-/*
-    public  int countXX(String str) {
+    int countXX(String str) {
+        int index = 1;
+        int counter = 0;
+        while (index < str.length()) {
+            if (str.substring(index - 1, index + 1).equals("xx")) {
+                counter++;
+            }
+            index++;
+        }
+        return counter;
+    }
+
+    //    Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
+    boolean doubleX(String str) {
+        int i = str.indexOf("x");
+        if (str.charAt(i+1)=='x'){
+            return true;
+        }else {
+            return false;
+        }
+
 
     }
-*/
 
 
 }
