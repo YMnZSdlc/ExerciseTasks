@@ -39,16 +39,33 @@ public class Warmup2 {
         return counter;
     }
 
-    //    Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
+    //Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
     boolean doubleX(String str) {
         int i = str.indexOf("x");
-        if (str.charAt(i+1)=='x'){
+        if (str.length() <= i + 1) {
+            return false;
+        } else if (str.charAt(i + 1) == 'x') {
             return true;
-        }else {
+        } else {
             return false;
         }
+    }
 
+    //Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
+    public String stringBits(String str) {
+        if (str.length()<1){
+            return "";
+        }else if (str.length()<2){
+            return str;
+        } else {
+            return str.charAt(0) + stringBits(str.substring(2));
+        }
+    }
 
+    //Given a non-empty string like "Code" return a string like "CCoCodCode".
+    public String stringSplosion(String str) {
+        if (str.length()<2)return str;
+        return stringSplosion(str.substring(0,str.length()-1))+str;
     }
 
 
