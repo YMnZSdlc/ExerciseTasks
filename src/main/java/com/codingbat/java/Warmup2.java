@@ -53,19 +53,65 @@ public class Warmup2 {
 
     //Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
     public String stringBits(String str) {
-        if (str.length()<1){
+        if (str.length() < 1) {
             return "";
-        }else if (str.length()<2){
+        } else if (str.length() < 2) {
             return str;
         } else {
             return str.charAt(0) + stringBits(str.substring(2));
         }
     }
 
-    //Given a non-empty string like "Code" return a string like "CCoCodCode".
+    //    Given a non-empty string like "Code" return a string like "CCoCodCode".
     public String stringSplosion(String str) {
-        if (str.length()<2)return str;
-        return stringSplosion(str.substring(0,str.length()-1))+str;
+        if (str.length() < 2) return str;
+        return stringSplosion(str.substring(0, str.length() - 1)) + str;
+    }
+
+    // Given a string, return the count of the number of times that a substring length 2 appears
+    // in the string and also as the last 2 chars of the string,
+    // so "hixxxhi" yields 1 (we won't count the end substring).
+    public int last2(String str) {
+        if (str.length() < 2) {
+            return 0;
+        }
+        String end = str.substring(str.length() - 2);
+        int result = 0;
+        for (int i = 0; i < str.length() - 2; i++) {
+            if (str.substring(i, (i + 2)).equals(end)) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    // Given an array of ints, return the number of 9's in the array.
+    public int arrayCount9(int[] nums) {
+        int result = 0;
+        for (int num : nums) {
+            if (num == 9) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    // Given an array of ints, return true if one of the first 4 elements in the array is a 9.
+    // The array length may be less than 4.
+    public boolean arrayFront9(int[] nums) {
+        int i = 1;
+        for (int num : nums) {
+            if (num==9 && i<=4){
+                return true;
+            }
+            i ++;
+        }
+        return false;
+    }
+
+    // Given an array of ints, return true if the sequence of numbers 1, 2, 3 appears in the array somewhere.
+    public boolean array123(int[] nums) {
+
     }
 
 
