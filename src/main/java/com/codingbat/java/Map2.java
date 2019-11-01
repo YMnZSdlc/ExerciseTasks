@@ -1,4 +1,4 @@
-package Task;
+package com.codingbat.java;
 
 import java.util.HashMap;
 import java.util.Map;

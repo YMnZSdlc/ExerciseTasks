@@ -1,9 +1,7 @@
-package Task;
+package com.codingbat.java;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Map1 {
     public static void main(String[] args) {

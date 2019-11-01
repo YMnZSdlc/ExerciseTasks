@@ -1,4 +1,4 @@
-package Task;
+package com.codingbat.java;
 
 public class Temp {
     public static void main(String[] args) {

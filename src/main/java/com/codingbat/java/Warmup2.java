@@ -1,4 +1,4 @@
-package Task;
+package com.codingbat.java;
 
 public class Warmup2 {
 
